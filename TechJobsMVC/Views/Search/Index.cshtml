@@ -26,8 +26,29 @@
 
     <hr />
 
-    @{
-        //TODO #4: Loop over the search results to display all job fields.
-    }
+    @if (ViewBag.jobs != null)
+    {
+        <table class="job-listing">
 
+            @foreach (var job in ViewBag.jobs)
+            {
+                <tr>
+                    <td>
+                        @* // property names arent good enough to use as display strings in this case.
+                            @foreach(var prop in job.GetType().GetProperties())
+                            {
+                            <p>@prop.Name: @prop.GetValue(job, null)</p>
+                            }*@
+
+                        <p>ID: @job.Id</p>
+                        <p>Name: @job.Name</p>
+                        <p>Employer: @job.Employer</p>
+                        <p>Location: @job.Location</p>
+                        <p>Position Type: @job.PositionType</p>
+                        <p>Skill: @job.CoreCompetency</p>
+                    </td>
+                </tr>
+            }
+        </table>
+    }
 </div>
