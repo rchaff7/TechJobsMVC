@@ -7,6 +7,12 @@
         {
             <tr>
                 <td>
+                    @* // property names arent good enough to use as display strings in this case.
+                    @foreach(var prop in job.GetType().GetProperties())
+                    {
+                    <p>@prop.Name: @prop.GetValue(job, null)</p>
+                    }*@
+
                     <p>ID: @job.Id</p>
                     <p>Name: @job.Name</p>
                     <p>Employer: @job.Employer</p>
