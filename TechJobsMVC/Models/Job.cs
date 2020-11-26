@@ -18,7 +18,7 @@ namespace TechJobsMVC.Models
             Id = nextId;
             nextId++;
         }
-
+        
         public Job(string name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) : this()
         {
             Name = name;
